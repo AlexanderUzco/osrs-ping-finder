@@ -361,49 +361,21 @@ export default function Home() {
               href={KOFI_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 w-full px-4 py-3 rounded bg-[#13C3FF] text-white font-bold text-center hover:bg-[#0ea5db] transition"
+              className="flex items-center justify-center gap-3 w-full px-4 py-3 rounded bg-white text-[#2d2418] font-semibold text-center hover:bg-[#f0f0f0] transition shadow-sm"
             >
-              <span className="text-xl">☕</span>
+              <img src="/ko-fi.webp" alt="" className="h-6 w-auto" />
               Support me on Ko-fi
             </a>
 
-            <div className="flex items-center gap-3">
-              <div className="flex-1 h-px bg-[var(--color-border)]" />
-              <span className="text-xs text-[var(--color-muted)] uppercase tracking-wider">
-                or crypto
-              </span>
-              <div className="flex-1 h-px bg-[var(--color-border)]" />
-            </div>
-
-            <div className="bg-[var(--color-bg)] rounded p-4 space-y-2">
-              <div className="text-xs uppercase tracking-wide text-[var(--color-muted)]">
-                Binance Pay ID
-              </div>
-              <div className="flex items-center gap-2">
-                <code className="font-mono text-lg text-[var(--color-accent)] flex-1">
-                  {BINANCE_PAY_ID}
-                </code>
-                <button
-                  onClick={() => {
-                    navigator.clipboard.writeText(BINANCE_PAY_ID);
-                  }}
-                  className="px-3 py-1 rounded bg-[var(--color-accent)] text-black text-xs font-semibold hover:bg-[var(--color-accent-hover)]"
-                >
-                  Copy
-                </button>
-                <a
-                  href={BINANCE_PAY_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-3 py-1 rounded border border-[var(--color-accent)] text-[var(--color-accent)] text-xs font-semibold hover:bg-[var(--color-accent)] hover:text-black"
-                >
-                  Open
-                </a>
-              </div>
-              <p className="text-xs text-[var(--color-muted)]">
-                Any supported coin · zero fees inside Binance.
-              </p>
-            </div>
+            <a
+              href={BINANCE_PAY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-3 w-full px-4 py-3 rounded bg-[#F0B90B] text-black font-semibold text-center hover:bg-[#d9a509] transition shadow-sm"
+            >
+              <img src="/binance.webp" alt="" className="h-6 w-auto" />
+              Pay with Binance
+            </a>
           </div>
         </div>
       )}
