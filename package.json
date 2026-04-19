@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "refresh-worlds": "node scripts/refresh-worlds.mjs"
   },
   "dependencies": {
     "next": "16.2.4",

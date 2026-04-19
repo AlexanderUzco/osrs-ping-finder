@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# OSRS Ping Finder
 
-## Getting Started
+A web tool that helps Old School RuneScape players find the world with the lowest ping from their browser. Deployed on Vercel.
 
-First, run the development server:
+## How it works
+
+- The world list is pulled from `https://oldschool.runescape.com/slu` (the official Jagex world list) by a GitHub Action that runs every 6 hours and commits `public/worlds.json`. Each commit auto-triggers a Vercel redeploy, so the site always has a fresh list.
+- In the browser, latency is measured with `fetch` (`mode: 'no-cors'`) against each world's `jav_config.ws` endpoint. The absolute numbers include the TLS handshake, but the relative ordering between worlds matches RuneLite's World Switcher.
+- Filters: type (Members / Free), country, normal-only (hide PvP / skill total / minigames), and search.
+
+## Local development
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev              # http://localhost:3000
+npm run refresh-worlds   # re-download the Jagex world list
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Deployment (Vercel)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Push this repo to GitHub.
+2. Go to [vercel.com/new](https://vercel.com/new), import the repo.
+3. Accept the defaults (Next.js framework auto-detected) and hit **Deploy**.
+4. That's it — every push to `main` auto-deploys.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The GitHub Action in `.github/workflows/refresh-worlds.yml` keeps `public/worlds.json` up to date. Each commit from the action triggers a Vercel redeploy automatically.
 
-## Learn More
+## Stack
 
-To learn more about Next.js, take a look at the following resources:
+- Next.js 16 (App Router)
+- React 19
+- Tailwind CSS v4
+- TypeScript
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Support
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+If this helped you, tips are welcome via Binance Pay ID `241490113`.
 
-## Deploy on Vercel
+## Credits
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- World list: Jagex - `oldschool.runescape.com/slu`
+- Not affiliated with Jagex. OSRS is a trademark of Jagex Limited.
