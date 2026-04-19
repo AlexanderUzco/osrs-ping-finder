@@ -14,6 +14,8 @@ import {
   type WorldsFile,
 } from "@/lib/worlds";
 
+const KOFI_URL = "https://ko-fi.com/alexanderuzcotia";
+const GITHUB_URL = "https://github.com/AlexanderUzco/osrs-ping-finder";
 const BINANCE_PAY_ID = "241490113";
 const BINANCE_PAY_URL = `https://pay.binance.com/en/send?id=${BINANCE_PAY_ID}`;
 
@@ -119,12 +121,25 @@ export default function Home() {
               Find the world with the lowest ping from your browser.
             </p>
           </div>
-          <button
-            onClick={() => setDonationOpen(true)}
-            className="px-4 py-2 rounded border border-[var(--color-accent)] text-[var(--color-accent)] hover:bg-[var(--color-accent)] hover:text-black transition text-sm font-semibold"
-          >
-            ☕ Donate
-          </button>
+          <div className="flex items-center gap-2">
+            <a
+              href={GITHUB_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="View source on GitHub"
+              className="p-2 rounded text-[var(--color-muted)] hover:text-[var(--color-text)] hover:bg-[var(--color-bg-row)] transition"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
+                <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-1.16-.02-2.1-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.47.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.21-1.49 3.18-1.18 3.18-1.18.63 1.58.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.69 5.4-5.26 5.69.41.35.77 1.05.77 2.12 0 1.53-.01 2.77-.01 3.14 0 .3.21.66.79.55A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z" />
+              </svg>
+            </a>
+            <button
+              onClick={() => setDonationOpen(true)}
+              className="px-4 py-2 rounded border border-[var(--color-accent)] text-[var(--color-accent)] hover:bg-[var(--color-accent)] hover:text-black transition text-sm font-semibold"
+            >
+              ☕ Donate
+            </button>
+          </div>
         </div>
       </header>
 
@@ -323,7 +338,7 @@ export default function Home() {
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className="bg-[var(--color-bg-elevated)] border border-[var(--color-border)] rounded-lg p-6 max-w-md w-full space-y-4"
+            className="bg-[var(--color-bg-elevated)] border border-[var(--color-border)] rounded-lg p-6 max-w-md w-full space-y-5"
           >
             <div className="flex items-center justify-between">
               <h2 className="text-lg font-bold text-[var(--color-accent)]">
@@ -341,12 +356,31 @@ export default function Home() {
               If this saved you from a laggy raid, a tip keeps the servers &mdash;
               and the coffee &mdash; flowing.
             </p>
+
+            <a
+              href={KOFI_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 w-full px-4 py-3 rounded bg-[#13C3FF] text-white font-bold text-center hover:bg-[#0ea5db] transition"
+            >
+              <span className="text-xl">☕</span>
+              Support me on Ko-fi
+            </a>
+
+            <div className="flex items-center gap-3">
+              <div className="flex-1 h-px bg-[var(--color-border)]" />
+              <span className="text-xs text-[var(--color-muted)] uppercase tracking-wider">
+                or crypto
+              </span>
+              <div className="flex-1 h-px bg-[var(--color-border)]" />
+            </div>
+
             <div className="bg-[var(--color-bg)] rounded p-4 space-y-2">
               <div className="text-xs uppercase tracking-wide text-[var(--color-muted)]">
                 Binance Pay ID
               </div>
               <div className="flex items-center gap-2">
-                <code className="font-mono text-xl text-[var(--color-accent)] flex-1">
+                <code className="font-mono text-lg text-[var(--color-accent)] flex-1">
                   {BINANCE_PAY_ID}
                 </code>
                 <button
@@ -357,19 +391,19 @@ export default function Home() {
                 >
                   Copy
                 </button>
+                <a
+                  href={BINANCE_PAY_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-3 py-1 rounded border border-[var(--color-accent)] text-[var(--color-accent)] text-xs font-semibold hover:bg-[var(--color-accent)] hover:text-black"
+                >
+                  Open
+                </a>
               </div>
+              <p className="text-xs text-[var(--color-muted)]">
+                Any supported coin · zero fees inside Binance.
+              </p>
             </div>
-            <a
-              href={BINANCE_PAY_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block w-full px-4 py-3 rounded bg-[var(--color-accent)] text-black font-bold text-center hover:bg-[var(--color-accent-hover)]"
-            >
-              Open Binance Pay
-            </a>
-            <p className="text-xs text-[var(--color-muted)] text-center">
-              Send any amount · any supported coin · zero fees inside Binance.
-            </p>
           </div>
         </div>
       )}
