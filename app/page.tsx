@@ -371,10 +371,10 @@ export default function Home() {
               href={BINANCE_PAY_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-3 w-full px-4 py-3 rounded bg-[#F0B90B] text-black font-semibold text-center hover:bg-[#d9a509] transition shadow-sm"
+              className="flex items-center justify-center gap-3 w-full px-4 py-3 rounded bg-[#0B0E11] text-white font-semibold text-center hover:bg-[#1E2329] transition shadow-sm border border-[#2a2f38]"
             >
               <img src="/binance.webp" alt="" className="h-6 w-auto" />
-              Pay with Binance
+              Donate with Binance
             </a>
           </div>
         </div>
